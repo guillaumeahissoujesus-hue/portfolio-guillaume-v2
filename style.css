@@ -1,69 +1,48 @@
 /* ==========================================================================
    PORTFOLIO GUILLAUME AHISSOU · CHARTE GRAPHIQUE PROFESSIONNELLE
-   Harmonie des couleurs :
-   - BLEU NUIT  : #0B163F (Couleur dominante, profondeur, autorité)
-   - BLEU CIEL  : #0EA5E9 / #38BDF8 (Accents vifs, boutons, dynamisme moderne)
-   - BLANC      : #FFFFFF / #F6F9FD (Pureté, clarté, élégance et lisibilité)
+   Harmonie des contrastes :
+   - BANNIÈRE HERO (HAUT)  : FOND NOIR (#000000) · Typographie BLANCHE & Accents Bleu Ciel
+   - SECTIONS DU MILIEU    : FOND BLANC (#FFFFFF / #F8FAFC) · Typographie NOIRE/BLEU NUIT & Cartes Blanches
+   - SECTION CONTACT (BAS) : FOND NOIR (#000000) · Typographie BLANCHE & Boutons Bleu Ciel / Royal
+   - PIED DE PAGE (FOOTER) : FOND NOIR (#000000) · Typographie claire
+   - BOUTONS DU SITE       : Bleu Ciel (#0EA5E9 / #0284C7) & Bleu Royal (#2563EB) avec Texte Blanc
    ========================================================================== */
 
 :root {
-  --navy: #0B163F;
-  --navy-deep: #050B20;
-  --navy-card: #0F1E4D;
-  --navy-light: #162B68;
-  --accent: #0EA5E9;             /* Bleu ciel primaire */
-  --accent-hover: #0284C7;       /* Bleu ciel intense au survol */
-  --accent-light: #38BDF8;       /* Bleu ciel lumineux */
-  --accent-soft: rgba(14, 165, 233, 0.12);
-  --accent-glow: rgba(14, 165, 233, 0.35);
+  /* Fonds pour les sections centrales blanches */
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-alt: #F8FAFC;
+  --line: #E2E8F0;
   
-  /* Touches Jaune Or Prestige */
-  --gold: #F59E0B;
-  --gold-light: #FDE047;
-  --gold-gradient: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #D97706 100%);
-  --gold-glow: rgba(245, 158, 11, 0.45);
-  --gold-soft: rgba(245, 158, 11, 0.15);
+  /* Typographie sur fond blanc */
+  --text: #0B163F;               /* Bleu nuit profond / noir pour lisibilité maximale */
+  --text-muted: #475569;         /* Gris ardoise équilibré pour les descriptions */
+  --muted: #64748B;              /* Gris secondaire */
+  --chip: #F1F5F9;
 
-  --bg: #FFFFFF;                 /* Blanc épuré */
-  --surface: #FFFFFF;            /* Blanc pur */
-  --surface-alt: #F6F9FD;        /* Blanc bleuté très doux pour alternance */
-  --text: #0B163F;               /* Bleu nuit pour texte principal */
-  --text-light: #FFFFFF;         /* Blanc pur pour texte sur fond sombre */
-  --muted: #566985;              /* Gris bleuté équilibré pour sous-titres */
-  --line: #E2E8F0;               /* Lignes et bordures nettes et discrètes */
-  --chip: #EEF4FA;               /* Fond des pastilles */
+  /* Couleurs Bleu Ciel & Bleu Royal */
+  --sky-blue: #0EA5E9;           /* Bleu ciel vif */
+  --sky-blue-hover: #0284C7;     /* Bleu ciel intense */
+  --sky-blue-light: #38BDF8;     /* Bleu ciel lumineux */
+  --royal-blue: #2563EB;         /* Bleu royal pour bouton accent */
+  --royal-blue-hover: #1D4ED8;   /* Bleu royal soutenu */
+
+  /* Gradients Boutons */
+  --btn-sky-gradient: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  --btn-sky-hover: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+  --btn-royal-gradient: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  --btn-royal-hover: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #050B20;
-    --surface: #0B163F;
-    --surface-alt: #101F52;
-    --text: #F8FAFC;
-    --muted: #94A3B8;
-    --line: #1E293B;
-    --chip: #152554;
-    --accent: #38BDF8;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #050B20;
-  --surface: #0B163F;
-  --surface-alt: #101F52;
-  --text: #F8FAFC;
-  --muted: #94A3B8;
-  --line: #1E293B;
-  --chip: #152554;
-  --accent: #38BDF8;
-}
-
 html {
   scroll-padding-top: 30px;
   scroll-behavior: smooth;
+  background-color: #000000;
 }
 
 * {
@@ -98,16 +77,14 @@ a {
   color: #0284C7;
 }
 
-.hero .eyebrow,
-.cta .eyebrow,
-.showcase .eyebrow,
-.showcase-drive .eyebrow {
-  color: #7DD3FC;
+.eyebrow-gold {
+  color: #0284C7 !important;
 }
 
 h1, h2, h3, h4 {
   margin: 0;
   line-height: 1.15;
+  color: #0B163F;
 }
 
 h2 {
@@ -115,17 +92,11 @@ h2 {
   font-weight: 800;
   letter-spacing: -0.01em;
   margin: 8px 0 24px;
-  color: var(--navy);
-}
-
-.hero h2,
-.cta h2,
-.showcase-drive h2 {
-  color: #FFFFFF;
+  color: #0B163F;
 }
 
 /* ==========================================================================
-   NAVIGATION & EN-TÊTE
+   NAVIGATION & EN-TÊTE (DANS LA BANNIÈRE NOIRE)
    ========================================================================== */
 nav {
   display: flex;
@@ -169,30 +140,31 @@ nav ul a:hover {
 }
 
 .nav-cta {
-  background: linear-gradient(135deg, #0EA5E9, #0284C7);
+  background: var(--btn-sky-gradient);
   color: #FFFFFF !important;
   padding: 8px 18px !important;
   border-radius: 999px;
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
   transition: transform 0.15s, box-shadow 0.15s !important;
 }
 
 .nav-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.5);
+  background: var(--btn-sky-hover);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.6);
 }
 
 /* ==========================================================================
-   HERO SECTION
+   BANNIÈRE HERO (BACKGROUND NOIR)
    ========================================================================== */
 .hero {
-  background: radial-gradient(900px 500px at 85% -10%, #16367C 0, transparent 65%),
-              linear-gradient(160deg, var(--navy-deep), var(--navy));
+  background: radial-gradient(900px 500px at 85% -10%, #0d1e44 0, transparent 65%), #000000;
   color: #FFFFFF;
   padding-bottom: 90px;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid #1E293B;
 }
 
 .hero::after {
@@ -205,6 +177,10 @@ nav ul a:hover {
   border-radius: 50%;
   border: 1px solid rgba(56, 189, 248, 0.22);
   pointer-events: none;
+}
+
+.hero .eyebrow {
+  color: #38BDF8;
 }
 
 .hero-grid {
@@ -222,14 +198,15 @@ nav ul a:hover {
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 14px 0 18px;
+  color: #FFFFFF;
 }
 
 .hero h1 em {
   font-style: normal;
-  background: linear-gradient(135deg, #FFFBEB 0%, #FDE047 35%, #F59E0B 75%, #D97706 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #7DD3FC 50%, #0EA5E9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 16px rgba(245, 158, 11, 0.45));
+  filter: drop-shadow(0 2px 16px rgba(14, 165, 233, 0.45));
 }
 
 .lead {
@@ -246,6 +223,9 @@ nav ul a:hover {
   margin-top: 32px;
 }
 
+/* ==========================================================================
+   BOUTONS DU SITE (BLEU CIEL & BLEU ROYAL · TEXTE BLANC)
+   ========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -259,57 +239,69 @@ nav ul a:hover {
   transition: transform 0.15s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
   text-align: center;
   white-space: nowrap;
+  color: #FFFFFF !important;
 }
 
 .btn:hover {
   transform: translateY(-2px);
 }
 
+/* Bouton Bleu Ciel Primaire */
 .btn-accent {
-  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  background: var(--btn-sky-gradient);
   color: #FFFFFF !important;
-  box-shadow: 0 4px 18px var(--accent-glow);
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.45);
+  border: 1px solid rgba(56, 189, 248, 0.45);
 }
 
 .btn-accent:hover {
-  background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
-  box-shadow: 0 6px 24px rgba(14, 165, 233, 0.5);
+  background: var(--btn-sky-hover);
+  box-shadow: 0 6px 24px rgba(14, 165, 233, 0.65);
+  border-color: #BAE6FD;
 }
 
+/* Bouton Bleu Royal */
 .btn-gold {
-  background: var(--gold-gradient);
-  color: #060F26 !important;
+  background: var(--btn-royal-gradient);
+  color: #FFFFFF !important;
   font-weight: 700;
-  box-shadow: 0 4px 18px var(--gold-glow);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.45);
+  border: 1px solid rgba(96, 165, 250, 0.6);
 }
 
 .btn-gold:hover {
-  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 55%, #B45309 100%);
-  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.65);
+  background: var(--btn-royal-hover);
+  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.7);
+  border-color: #BFDBFE;
 }
 
+/* Bouton Bleu Navy / Secondaire */
 .btn-navy {
-  background: var(--navy);
+  background: var(--btn-sky-gradient);
   color: #FFFFFF !important;
-  border: 1px solid rgba(14, 165, 233, 0.3);
+  border: 1px solid #38BDF8;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
 }
 
 .btn-navy:hover {
-  background: #0284C7;
-  border-color: #38BDF8;
+  background: var(--btn-sky-hover);
+  border-color: #7DD3FC;
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.55);
 }
 
+/* Bouton Bleu Ciel Alternatif */
 .btn-line {
-  border-color: rgba(255, 255, 255, 0.65);
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--btn-sky-gradient);
+  color: #FFFFFF !important;
+  border: 1.5px solid #38BDF8;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
 }
 
 .btn-line:hover {
-  border-color: #38BDF8;
-  color: #FFFFFF;
-  background: rgba(14, 165, 233, 0.15);
+  background: var(--btn-sky-hover);
+  border-color: #BAE6FD;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.55);
 }
 
 .stats {
@@ -322,26 +314,29 @@ nav ul a:hover {
 .stats b {
   display: block;
   font-size: 1.95rem;
-  background: linear-gradient(135deg, #FFFFFF 40%, #FDE047 100%);
+  background: linear-gradient(135deg, #FFFFFF 40%, #38BDF8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
 }
 
 .stats small {
-  color: #9DB4D6;
+  color: #94A3B8;
   font-size: 0.8rem;
   font-weight: 500;
 }
 
-/* CARTE À PROPOS (HERO) */
+/* CARTE À PROPOS (DANS LA BANNIÈRE NOIRE) */
 .card-about {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0A0F1D;
+  border: 1px solid #1E293B;
   border-radius: 28px;
   padding: 24px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.card-about .eyebrow {
+  color: #38BDF8;
 }
 
 .avatar {
@@ -352,17 +347,9 @@ nav ul a:hover {
   object-fit: cover;
   object-position: center top;
   border-radius: 20px;
-  border: 2.5px solid #F59E0B;
+  border: 2.5px solid #0EA5E9;
   margin: 0 auto 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 18px rgba(245, 158, 11, 0.3);
-}
-
-.chip-gold {
-  background: rgba(245, 158, 11, 0.18) !important;
-  color: #FDE047 !important;
-  border: 1px solid rgba(245, 158, 11, 0.5) !important;
-  font-weight: 700 !important;
-  box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(14, 165, 233, 0.35);
 }
 
 .card-about h3 {
@@ -405,27 +392,37 @@ nav ul a:hover {
   border-radius: 999px;
   font-size: 0.76rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(14, 165, 233, 0.14);
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+}
+
+.chip-gold {
+  background: rgba(14, 165, 233, 0.22) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #38BDF8 !important;
+  font-weight: 700 !important;
 }
 
 /* ==========================================================================
-   SECTIONS GÉNÉRALES
+   SECTIONS CENTRALES (BACKGROUND BLANC)
    ========================================================================== */
 section {
   padding: 86px 0;
+  background: #FFFFFF;
 }
 
 .alt {
   background: var(--surface-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 /* ==========================================================================
    SECTION RÉALISATIONS & SHOWCASE SPOTS DRIVE
    ========================================================================== */
 .showcase-drive {
-  background: linear-gradient(135deg, var(--navy), #122557);
+  background: linear-gradient(135deg, #0B163F 0%, #162B68 100%);
   color: #FFFFFF;
   border-radius: 28px;
   padding: 40px;
@@ -433,9 +430,13 @@ section {
   grid-template-columns: 1.4fr auto;
   gap: 32px;
   align-items: center;
-  border: 1.5px solid rgba(245, 158, 11, 0.35);
-  box-shadow: 0 20px 50px -20px rgba(11, 22, 63, 0.7), 0 0 28px rgba(245, 158, 11, 0.08);
+  border: 1.5px solid rgba(14, 165, 233, 0.35);
+  box-shadow: 0 20px 50px -20px rgba(11, 22, 63, 0.35);
   margin-bottom: 50px;
+}
+
+.showcase-drive .eyebrow {
+  color: #7DD3FC;
 }
 
 .showcase-drive h3 {
@@ -469,36 +470,32 @@ section {
 .univers {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-top: 4px solid var(--accent);
+  border-top: 4px solid var(--sky-blue);
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 4px 14px rgba(11, 22, 63, 0.03);
+  box-shadow: 0 4px 16px rgba(11, 22, 63, 0.04);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .univers:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.09);
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.12);
 }
 
 .univers.gold-accent {
-  border-top-color: #F59E0B;
-}
-
-.univers.gold-accent:hover {
-  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15);
+  border-top-color: #0284C7;
 }
 
 .univers h3 {
   font-size: 1.12rem;
   font-weight: 700;
   margin-bottom: 6px;
-  color: var(--navy);
+  color: #0B163F;
 }
 
 .univers p {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.88rem;
 }
 
@@ -513,10 +510,11 @@ section {
 
 .gallery-section-header h2 {
   margin-bottom: 12px;
+  color: #0B163F;
 }
 
 .gallery-section-header p {
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.98rem;
   margin: 0;
 }
@@ -531,30 +529,30 @@ section {
 }
 
 .filter-btn {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  color: var(--navy);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #0B163F;
   padding: 8px 18px;
   border-radius: 999px;
   font-family: inherit;
   font-size: 0.86rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   transition: all 0.2s;
 }
 
 .filter-btn:hover {
-  border-color: var(--accent);
+  border-color: var(--sky-blue);
   color: #0284C7;
   background: #F0F9FF;
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, #0EA5E9, #0284C7);
+  background: var(--btn-sky-gradient);
   color: #FFFFFF;
-  border-color: #0EA5E9;
-  box-shadow: 0 4px 14px var(--accent-glow);
+  border-color: #0284C7;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
 }
 
 /* Grille des réalisations */
@@ -565,11 +563,11 @@ section {
 }
 
 .visuel-card {
-  background: var(--surface);
+  background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(11, 22, 63, 0.04);
+  box-shadow: 0 4px 16px rgba(11, 22, 63, 0.05);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
   cursor: pointer;
   display: flex;
@@ -578,15 +576,15 @@ section {
 
 .visuel-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.15);
+  border-color: var(--sky-blue);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.18);
 }
 
 .visuel-img-box {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3.2;
-  background: #EAF1F8;
+  background: #E2E8F0;
   overflow: hidden;
 }
 
@@ -606,14 +604,14 @@ section {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(11, 22, 63, 0.88);
+  background: rgba(11, 22, 63, 0.9);
   color: #FFFFFF;
   font-size: 0.72rem;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 999px;
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.35);
 }
 
 .visuel-info {
@@ -627,7 +625,7 @@ section {
 .visuel-info h4 {
   font-size: 0.94rem;
   font-weight: 700;
-  color: var(--navy);
+  color: #0B163F;
   margin-bottom: 6px;
   line-height: 1.3;
 }
@@ -652,8 +650,8 @@ section {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(5, 11, 32, 0.94);
-  backdrop-filter: blur(8px);
+  background: rgba(5, 11, 32, 0.95);
+  backdrop-filter: blur(10px);
   z-index: 9999;
   display: none;
   align-items: center;
@@ -688,8 +686,8 @@ section {
   max-height: 75vh;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.25);
 }
 
 .lightbox-caption {
@@ -733,8 +731,8 @@ section {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(2, 132, 199, 0.35);
+  border: 1px solid rgba(56, 189, 248, 0.4);
   color: #FFFFFF;
   font-size: 1.6rem;
   width: 48px;
@@ -748,7 +746,7 @@ section {
 }
 
 .lightbox-nav:hover {
-  background: #0EA5E9;
+  background: #0284C7;
   border-color: #38BDF8;
 }
 
@@ -761,7 +759,7 @@ section {
 }
 
 /* ==========================================================================
-   SECTION PROJETS WEB & SITES CRÉÉS
+   SECTION PROJETS WEB & SITES CRÉÉS (BACKGROUND BLANC)
    ========================================================================== */
 .web-projects-grid {
   display: grid;
@@ -771,14 +769,14 @@ section {
 }
 
 .web-card {
-  background: var(--surface);
+  background: #FFFFFF;
   border: 1.5px solid var(--line);
   border-radius: 24px;
   padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 8px 24px rgba(11, 22, 63, 0.04);
+  box-shadow: 0 8px 24px rgba(11, 22, 63, 0.05);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
   position: relative;
   overflow: hidden;
@@ -791,13 +789,13 @@ section {
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, #0EA5E9, #38BDF8);
+  background: linear-gradient(90deg, #0EA5E9, #0284C7);
 }
 
 .web-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 16px 36px rgba(14, 165, 233, 0.12);
+  border-color: var(--sky-blue);
+  box-shadow: 0 16px 36px rgba(14, 165, 233, 0.15);
 }
 
 .web-card-tag {
@@ -811,18 +809,18 @@ section {
   margin-bottom: 14px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border: 1px solid rgba(14, 165, 233, 0.2);
+  border: 1px solid rgba(14, 165, 233, 0.25);
 }
 
 .web-card h3 {
   font-size: 1.45rem;
   font-weight: 800;
-  color: var(--navy);
+  color: #0B163F;
   margin-bottom: 12px;
 }
 
 .web-card p {
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.94rem;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -838,9 +836,9 @@ section {
 .web-card-tech span {
   font-size: 0.78rem;
   font-weight: 600;
-  background: #F0F7FD;
+  background: #F1F5F9;
   color: #0B163F;
-  border: 1px solid #D6E4F0;
+  border: 1px solid #CBD5E1;
   padding: 4px 11px;
   border-radius: 6px;
 }
@@ -855,11 +853,11 @@ section {
 }
 
 .skillbox {
-  background: var(--surface);
+  background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: 22px;
   padding: 26px;
-  box-shadow: 0 4px 14px rgba(11, 22, 63, 0.03);
+  box-shadow: 0 4px 14px rgba(11, 22, 63, 0.04);
 }
 
 .skillbox h3 {
@@ -878,7 +876,7 @@ section {
   padding: 8px 0;
   font-size: 0.92rem;
   border-bottom: 1px dashed var(--line);
-  color: var(--navy);
+  color: #0B163F;
   font-weight: 500;
 }
 
@@ -899,13 +897,13 @@ section {
 }
 
 .dots i.on {
-  background: var(--accent);
+  background: var(--sky-blue);
   box-shadow: 0 0 6px rgba(14, 165, 233, 0.4);
 }
 
 .dots i.gold {
-  background: var(--gold);
-  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  background: #0284C7;
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.4);
 }
 
 .web-banner {
@@ -916,19 +914,23 @@ section {
   margin-top: 36px;
 }
 
+.web-banner h2 {
+  color: #0B163F;
+}
+
 .web-banner p {
-  color: var(--muted);
+  color: var(--text-muted);
 }
 
 .code-box {
-  background: var(--navy-deep);
+  background: #0B163F;
   color: #E2E8F0;
   border-radius: 24px;
   padding: 28px;
   font-family: ui-monospace, Menlo, Consolas, monospace;
   font-size: 0.92rem;
   border: 1px solid rgba(56, 189, 248, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(11, 22, 63, 0.2);
 }
 
 .code-box .k {
@@ -940,7 +942,7 @@ section {
 }
 
 /* ==========================================================================
-   SECTION PARCOURS (EXPÉRIENCES DÉTAILLÉES NSIA BANQUE)
+   SECTION PARCOURS (EXPÉRIENCES DÉTAILLÉES)
    ========================================================================== */
 .cols {
   display: grid;
@@ -967,26 +969,22 @@ section {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--accent);
-  border: 3px solid var(--bg);
+  background: var(--sky-blue);
+  border: 3px solid #FFFFFF;
   box-shadow: 0 0 8px rgba(14, 165, 233, 0.4);
 }
 
-.alt .item::before {
-  border-color: var(--surface-alt);
-}
-
 .item.current-item::before {
-  background: var(--gold);
-  border-color: #0B163F;
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+  background: #0284C7;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);
 }
 
 .item h4 {
   margin: 0;
   font-size: 1.08rem;
   font-weight: 700;
-  color: var(--navy);
+  color: #0B163F;
 }
 
 .item .meta {
@@ -998,7 +996,7 @@ section {
 
 .item p {
   margin: 4px 0 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.88rem;
   line-height: 1.6;
 }
@@ -1015,7 +1013,7 @@ section {
 
 .exp-bullets li {
   font-size: 0.86rem;
-  color: var(--text);
+  color: #334155;
   position: relative;
   padding-left: 18px;
   line-height: 1.5;
@@ -1025,12 +1023,12 @@ section {
   content: "▸";
   position: absolute;
   left: 0;
-  color: #0EA5E9;
+  color: #0284C7;
   font-weight: bold;
 }
 
 .exp-bullets li strong {
-  color: var(--navy);
+  color: #0B163F;
 }
 
 details {
@@ -1049,60 +1047,82 @@ summary {
   font-size: 1.15rem;
   margin: 0 0 16px;
   font-weight: 700;
-  color: var(--navy);
+  color: #0B163F;
 }
 
 .side .box {
-  background: var(--surface);
+  background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 22px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 14px rgba(11, 22, 63, 0.03);
+  box-shadow: 0 4px 14px rgba(11, 22, 63, 0.04);
+}
+
+.side .box p {
+  color: var(--text-muted) !important;
 }
 
 /* ==========================================================================
-   SECTION CONTACT & FOOTER
+   SECTION CONTACT (BACKGROUND NOIR CI-JOINT) & FOOTER
    ========================================================================== */
 .cta {
-  background: linear-gradient(160deg, var(--navy-deep), var(--navy));
+  background: radial-gradient(900px 450px at 50% 100%, #0d1e44 0, transparent 65%), #000000;
   color: #FFFFFF;
   text-align: center;
-  padding: 86px 0;
+  padding: 96px 0 86px;
+  border-top: 1px solid #1E293B;
+}
+
+.cta .eyebrow {
+  color: #38BDF8;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .cta h2 {
   margin: 10px 0 20px;
   color: #FFFFFF;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .cta h2 em {
   font-style: normal;
-  color: #38BDF8;
+  display: block;
+  margin-top: 6px;
+  background: linear-gradient(135deg, #7DD3FC 0%, #38BDF8 50%, #0EA5E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(14, 165, 233, 0.4));
 }
 
 .cta p {
-  color: #E2E8F0;
+  color: #CBD5E1;
   max-width: 580px;
-  margin: 0 auto 32px;
-  font-size: 1rem;
+  margin: 0 auto 36px;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .contacts {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 footer {
-  background: var(--navy-deep);
+  background: #000000;
   color: #94A3B8;
   text-align: center;
   font-size: 0.88rem;
   font-weight: 500;
-  padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 28px 24px;
+  border-top: 1px solid #1E293B;
+  letter-spacing: 0.04em;
 }
 
 /* ==========================================================================
